@@ -1,6 +1,7 @@
 #include "FileSystem.h"
 
 #include "Directory.h"
+#include "File.h"
 
 FileSystem::FileSystem() {
     root = new Directory;
@@ -33,6 +34,10 @@ bool FileSystem::mkdir(string argument) {
 bool FileSystem::cd(string argument) {
     Directory* temp = changedirectory(argument, current);
 
+    if (temp->isFile) {
+        cout << "bash: cd: " << argument << ": Not a directory\n";
+        return true;
+    }
     if (!temp) {
         cout << "bash: cd: " << argument << ": No such file or directory\n";
         return true;
