@@ -1,16 +1,16 @@
 #pragma once
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 using namespace std;
 
-typedef struct Directory{
-  string name;
-  Directory* parent;
-  Directory* child;
-  Directory* sibling;
-}Directory;
+typedef struct Directory {
+    string name;
+    Directory* parent;
+    Directory* child;
+    Directory* sibling;
+} Directory;
 
 void Directory_init(Directory* root);
 bool haschild(const string& argument, Directory* root);
