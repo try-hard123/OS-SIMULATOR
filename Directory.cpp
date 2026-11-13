@@ -5,6 +5,8 @@ void Directory_init(Directory* root) {
     root->parent = nullptr;
     root->child = nullptr;
     root->sibling = nullptr;
+    root->isFile = false;
+    root->content = "";
 }
 
 bool haschild(const string& argument, Directory* current) {
@@ -22,7 +24,9 @@ bool getlist(Directory* current) {
 
     int cnt = 0;
     for (Directory* t = current->child; t != nullptr; t = t->sibling) {
-        cout << t->name << "\t";
+        cout << t->name ;
+        if (!t->isFile) cout << "/";
+        cout << "\t";
         if (++cnt == 9) {
             cnt = 0;
             cout << "\n";

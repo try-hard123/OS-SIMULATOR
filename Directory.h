@@ -10,6 +10,8 @@ typedef struct Directory {
     Directory* parent;
     Directory* child;
     Directory* sibling;
+    bool isFile;
+    string content;
 } Directory;
 
 void Directory_init(Directory* root);
